@@ -1,7 +1,24 @@
+import 'dart:async';
+
 import 'package:clean_architechture/core/base/bloc/base_bloc/base_bloc.dart';
+import 'package:clean_architechture/domain/use_cases/get_current_weather_usecase.dart';
 import 'package:clean_architechture/presentation/blocs/home_bloc/home_event.dart';
 import 'package:clean_architechture/presentation/blocs/home_bloc/home_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
-  HomeBloc() : super(const HomeState());
+  HomeBloc(this._getCurrentWeatherUseCase) : super(const HomeState()) {
+    on<GetCurrentWeatherEvent>(_getCurrentWeather);
+  }
+
+  final GetCurrentWeatherUseCase _getCurrentWeatherUseCase;
+
+  FutureOr<void> _getCurrentWeather(GetCurrentWeatherEvent event, Emitter<HomeState> emit) async {
+    runBlocCatching(action: () async {
+      final response = await _getCurrentWeatherUseCase.buildUseCase(GetCurrentWeatherInput(q: event.q));
+      print("18 --- response current weather on home bloc: ${response.currentWeatherEntity}");
+    });
+  }
 }

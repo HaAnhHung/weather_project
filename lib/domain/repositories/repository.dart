@@ -1,3 +1,5 @@
+import 'package:clean_architechture/domain/entities/current_weather_entity.dart';
+
 abstract class Repository {
-  Future getCurrentWeather(String q, String lang);
+  Future<CurrentWeatherEntity?> getCurrentWeather(String q, String lang);
 }

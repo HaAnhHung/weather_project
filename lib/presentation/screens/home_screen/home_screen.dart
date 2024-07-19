@@ -1,5 +1,6 @@
 import 'package:clean_architechture/core/base/base_page/base_page_state.dart';
 import 'package:clean_architechture/presentation/blocs/home_bloc/home_bloc.dart';
+import 'package:clean_architechture/presentation/blocs/home_bloc/home_event.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,9 +11,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
-
   @override
   Widget buildPage(BuildContext context) {
-    throw UnimplementedError();
+    return Scaffold(
+      body: Center(
+        child: TextButton(
+          onPressed: () async {
+            bloc.add(GetCurrentWeatherEvent(q: "London"));
+          },
+          child: Text("Get data"),
+        ),
+      ),
+    );
   }
 }

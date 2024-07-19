@@ -7,8 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class CommonBloc extends BaseBloc<CommonEvent, CommonState>{
-  CommonBloc(): super(CommonState()) {
+class CommonBloc extends BaseBloc<CommonEvent, CommonState> {
+  CommonBloc() : super(CommonState()) {
     on<CommonLoadingEvent>(_onLoading);
   }
 

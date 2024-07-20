@@ -1,6 +1,7 @@
 import 'package:clean_architechture/data/data_mapper/current_weather_data_mapper.dart';
 import 'package:clean_architechture/data/repositories_impl/api_service.dart';
 import 'package:clean_architechture/domain/entities/current_weather_entity.dart';
+import 'package:clean_architechture/domain/entities/error_entity.dart';
 import 'package:clean_architechture/domain/repositories/repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,8 +13,8 @@ class RepositoryImpl implements Repository {
   final CurrentWeatherDataMapper _currentWeatherDataMapper;
 
   @override
-  Future<CurrentWeatherEntity?> getCurrentWeather(String q, String lang) async {
-    final response = await _apiService.getCurrentWeather(q, lang);
+  Future<CurrentWeatherEntity?> getCurrentWeather(String q, String lang, Function(ErrorEntity error) onError) async {
+    final response = await _apiService.getCurrentWeather(q, lang, onError);
     return _currentWeatherDataMapper.mapToEntity(response);
   }
 }

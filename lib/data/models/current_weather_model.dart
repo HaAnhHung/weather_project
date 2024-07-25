@@ -21,11 +21,11 @@ class LocationModel {
   String? country;
   double? lat;
   double? lon;
-  String? tzId;
-  int? localtimeEpoch;
+  String? tz_id;
+  int? localtime_epoch;
   String? localtime;
 
-  LocationModel({this.name, this.region, this.country, this.lat, this.lon, this.tzId, this.localtimeEpoch, this.localtime});
+  LocationModel({this.name, this.region, this.country, this.lat, this.lon, this.tz_id, this.localtime_epoch, this.localtime});
 
   factory LocationModel.fromJson(Map<String, dynamic> json) => _$LocationModelFromJson(json);
 
@@ -34,56 +34,56 @@ class LocationModel {
 
 @JsonSerializable()
 class CurrentModel {
-  int? lastUpdatedEpoch;
-  String? lastUpdated;
-  double? tempC;
-  double? tempF;
+  int? last_updated_epoch;
+  String? last_updated;
+  double? temp_c;
+  double? temp_f;
   int? isDay;
   ConditionModel? condition;
-  double? windMph;
-  double? windKph;
-  int? windDegree;
-  String? windDir;
-  int? pressureMb;
-  double? pressureIn;
-  int? precipMm;
-  int? precipIn;
+  double? wind_mph;
+  double? wind_kph;
+  int? wind_degree;
+  String? wind_dir;
+  int? pressure_mb;
+  double? pressure_in;
+  int? precip_mm;
+  int? precip_in;
   int? humidity;
   int? cloud;
-  int? feelslikeC;
-  double? feelslikeF;
-  int? visKm;
-  int? visMiles;
+  int? feelslike_c;
+  double? feelslike_f;
+  int? vis_km;
+  int? vis_Miles;
   int? uv;
-  double? gustMph;
-  double? gustKph;
-  AirQualityModel? airQuality;
+  double? gust_mph;
+  double? gust_kph;
+  AirQualityModel? air_quality;
 
   CurrentModel(
-      {this.lastUpdatedEpoch,
-      this.lastUpdated,
-      this.tempC,
-      this.tempF,
+      {this.last_updated_epoch,
+      this.last_updated,
+      this.temp_c,
+      this.temp_f,
       this.isDay,
       this.condition,
-      this.windMph,
-      this.windKph,
-      this.windDegree,
-      this.windDir,
-      this.pressureMb,
-      this.pressureIn,
-      this.precipMm,
-      this.precipIn,
+      this.wind_mph,
+      this.wind_kph,
+      this.wind_degree,
+      this.wind_dir,
+      this.pressure_mb,
+      this.pressure_in,
+      this.precip_mm,
+      this.precip_in,
       this.humidity,
       this.cloud,
-      this.feelslikeC,
-      this.feelslikeF,
-      this.visKm,
-      this.visMiles,
+      this.feelslike_c,
+      this.feelslike_f,
+      this.vis_km,
+      this.vis_Miles,
       this.uv,
-      this.gustMph,
-      this.gustKph,
-      this.airQuality});
+      this.gust_kph,
+      this.gust_mph,
+      this.air_quality});
 
   factory CurrentModel.fromJson(Map<String, dynamic> json) => _$CurrentModelFromJson(json);
 
@@ -111,10 +111,10 @@ class AirQualityModel {
   int? so2;
   double? pm25;
   int? pm10;
-  int? usEpaIndex;
-  int? gbDefraIndex;
+  int? us_epa_index;
+  int? gb_defra_index;
 
-  AirQualityModel({this.co, this.no2, this.o3, this.so2, this.pm25, this.pm10, this.usEpaIndex, this.gbDefraIndex});
+  AirQualityModel({this.co, this.no2, this.o3, this.so2, this.pm25, this.pm10, this.us_epa_index, this.gb_defra_index});
 
   factory AirQualityModel.fromJson(Map<String, dynamic> json) => _$AirQualityModelFromJson(json);
 

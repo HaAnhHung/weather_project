@@ -19,13 +19,13 @@ class CurrentDataMapper extends BaseDataMapper<CurrentEntity, CurrentModel> {
   @override
   CurrentEntity mapToEntity(CurrentModel? data) {
     return CurrentEntity(
-        lastUpdatedEpoch: data?.lastUpdatedEpoch,
-        lastUpdated: data?.lastUpdated,
-        tempC: data?.tempC,
-        tempF: data?.tempF,
+        lastUpdatedEpoch: data?.last_updated_epoch,
+        lastUpdated: data?.last_updated,
+        tempC: data?.temp_c,
+        tempF: data?.temp_f,
         isDay: data?.isDay,
         condition: ConditionDataMapper().mapToEntity(data?.condition),
-        airQuality: AirQualityDataMapper().mapToEntity(data?.airQuality)
+        airQuality: AirQualityDataMapper().mapToEntity(data?.air_quality)
     );
   }
 }
@@ -53,8 +53,8 @@ class AirQualityDataMapper extends BaseDataMapper<AirQualityEntity, AirQualityMo
       so2: data?.so2,
       pm25: data?.pm25,
       pm10: data?.pm10,
-      usEpaIndex: data?.usEpaIndex,
-      gbDefraIndex: data?.gbDefraIndex,
+      usEpaIndex: data?.us_epa_index,
+      gbDefraIndex: data?.gb_defra_index,
     );
   }
 }

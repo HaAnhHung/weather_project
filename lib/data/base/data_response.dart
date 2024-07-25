@@ -1,14 +1,14 @@
+import 'package:clean_architechture/data/base/data_error.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'data_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class DataResponse<T> {
-  final int? code;
-  final String? message;
+  final DataError? error;
   final T? data;
 
-  DataResponse({required this.code, required this.message, required this.data});
+  DataResponse({this.data, this.error});
 
   factory DataResponse.fromJson(Map<String, dynamic> json, T Function(Object?) fromJsonT) => _$DataResponseFromJson(json, fromJsonT);
 

@@ -4,6 +4,7 @@ abstract class HomeEvent extends BaseEvent {}
 
 class GetCurrentWeatherEvent extends HomeEvent {
   final String q;
+  final String? lang;
 
-  GetCurrentWeatherEvent({required this.q});
+  GetCurrentWeatherEvent({required this.q, this.lang});
 }

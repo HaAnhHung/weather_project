@@ -1,5 +1,3 @@
-import 'package:json_annotation/json_annotation.dart';
-
 class CurrentWeatherEntity {
   LocationEntity? location;
   CurrentEntity? current;
@@ -13,11 +11,9 @@ class LocationEntity {
   String? country;
   double? lat;
   double? lon;
-  String? tzId;
-  int? localtimeEpoch;
   String? localtime;
 
-  LocationEntity({this.name, this.region, this.country, this.lat, this.lon, this.tzId, this.localtimeEpoch, this.localtime});
+  LocationEntity({this.name, this.region, this.country, this.lat, this.lon, this.localtime});
 }
 
 class CurrentEntity {

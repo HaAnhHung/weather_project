@@ -11,15 +11,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   Widget buildPage(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: TextButton(
-          onPressed: () async {
-            bloc.add(GetCurrentWeatherEvent(q: "London"));
-          },
-          child: Text("Get data"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () async {
+                bloc.add(GetCurrentWeatherEvent(q: "London"));
+              },
+              child: const Text("Get data"),
+            ),
+            Text("Nhiệt độ: ${bloc.currentWeatherEntity?.current?.tempC}")
+          ],
         ),
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:clean_architechture/data/data_mapper/base/base_data_mapper.dart';
 import 'package:clean_architechture/data/models/current_weather_model.dart';
 import 'package:clean_architechture/domain/entities/current_weather_entity.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class CurrentWeatherDataMapper extends BaseDataMapper<CurrentWeatherEntity, CurrentWeatherModel>{
   @override
   CurrentWeatherEntity mapToEntity(CurrentWeatherModel? data) {
@@ -12,6 +14,7 @@ class CurrentWeatherDataMapper extends BaseDataMapper<CurrentWeatherEntity, Curr
   }
 }
 
+@Injectable()
 class CurrentDataMapper extends BaseDataMapper<CurrentEntity, CurrentModel> {
   @override
   CurrentEntity mapToEntity(CurrentModel? data) {
@@ -27,6 +30,7 @@ class CurrentDataMapper extends BaseDataMapper<CurrentEntity, CurrentModel> {
   }
 }
 
+@Injectable()
 class ConditionDataMapper extends BaseDataMapper<ConditionEntity, ConditionModel> {
   @override
   ConditionEntity mapToEntity(ConditionModel? data) {
@@ -38,6 +42,7 @@ class ConditionDataMapper extends BaseDataMapper<ConditionEntity, ConditionModel
   }
 }
 
+@Injectable()
 class AirQualityDataMapper extends BaseDataMapper<AirQualityEntity, AirQualityModel> {
   @override
   AirQualityEntity mapToEntity(AirQualityModel? data) {
@@ -54,6 +59,7 @@ class AirQualityDataMapper extends BaseDataMapper<AirQualityEntity, AirQualityMo
   }
 }
 
+@Injectable()
 class LocationDataMapper extends BaseDataMapper<LocationEntity, LocationModel> {
   @override
   LocationEntity mapToEntity(LocationModel? data) {
@@ -63,9 +69,7 @@ class LocationDataMapper extends BaseDataMapper<LocationEntity, LocationModel> {
       country: data?.country,
       lat: data?.lat,
       lon: data?.lon,
-      tzId: data?.tzId,
       localtime: data?.localtime,
-      localtimeEpoch: data?.localtimeEpoch
     );
   }
 }
